@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/png" href="assets/saicon01.png" sizes="32x32">
+  <title>Sergio Alva</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css" />
+
+</head>
+
+<body>
+  <!-- video background -->
+  <div id="bg-video" aria-hidden="true">
+    <video autoplay muted loop playsinline preload="auto">
+      <source src="assets/fog.mp4" type="video/mp4" />
+      No HTML5 Support
+    </video>
+  </div>
+
+  <!-- vignette -->
+  <div class="vignette" aria-hidden="true"></div>
+
+  <!-- panel -->
+  <div class="panel" role="region" aria-labelledby="panel-title">
+    <div class="panel__scroll">
+      <h2 id="panel-title">Sergio Alva</h2>
+
+      <section class="edu">
+        <h3>Education</h3>
+        <p><strong>Peruvian University of Applied Sciences</strong> — Lima, Peru<br>
+        BSc, Software Engineering — <em>Sep. 2023</em></p>
+
+        <p><strong>Master’s Preparation Program (NCUK)</strong> — Lima, Peru<br>
+        English for Academic Purposes / Research Methods: Credit — <em>Jan. 2024 – May 2024</em></p>
+
+        <p><strong>The University of Sheffield</strong> — Sheffield, UK<br>
+        MSc, Advanced Computer Science — <em>Sep. 2024 – Present</em></p>
+      </section>
+
+      <hr>
+
+      <section class="exp">
+        <h3>Experience</h3>
+        <p><strong>ZyTrust SA</strong> — Lima, Peru<br>
+        <em>Software Developer Intern (Feb. 2022 – Nov. 2023)</em></p>
+        <ul>
+          <li>Developed backend features using Java Spring Boot within a microservices architecture.</li>
+          <li>Implemented frontend components with TypeScript and Angular, improving usability and responsiveness.</li>
+          <li>Collaborated using GitFlow workflow with clean version control and code reviews.</li>
+          <li>Managed tasks in JIRA Kanban boards and contributed to timely sprint deliveries.</li>
+          <li>Participated in Scrum ceremonies fostering agile collaboration and improvement.</li>
+          <li>Used SonarQube for code quality review and maintainability.</li>
+        </ul>
+      </section>
+
+      <hr>
+
+      <section class="skills">
+        <h3>Skills & Interests</h3>
+        <p><strong>Technical:</strong> Java, Python, TypeScript, C++, Kotlin, Dart, Spring Boot, Angular, HTML, CSS, JavaScript, Git, JIRA.</p>
+        <p><strong>Languages:</strong> Spanish (native), English (B2 – Upper Intermediate).</p>
+        <p><strong>Interests:</strong> Strategy and team-based games, Boardgames, Music and rhythm (percussion), Pastry and culinary experiments, Sustainable technology and environmental impact.</p>
+      </section>
+
+      <hr>
+
+      <section>
+        <p><em>Song: Peace and Serenity — Avith Ortega & Akira Yamaoka</em></p>
+      </section>
+
+      <!-- space -->
+      <div style="height:50px;" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <!-- music -->
+  <audio id="bg" autoplay loop muted playsinline preload="auto">
+    <source src="assets/peaceandserenity.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- music button -->
+  <button id="music-toggle" class="music-btn" aria-label="Toggle music">
+  <i class="fa-solid fa-music fa-fw"></i>
+</button>
+
+
+  <!-- Script -->
+  <script src="main.js" defer></script>
+</body>
+</html>

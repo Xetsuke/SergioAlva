@@ -1,0 +1,160 @@
+:root{
+  --bg:#1a1a1a;
+  --ui-bg:#0f0f10cc;
+  --ui-border:#ffffff22;
+  --text:#e9e9e9;
+  --muted:#bdbdbd;
+}
+
+/* ===== base ===== */
+html,body{
+  margin:0;
+  height:100%;
+  background:var(--bg);
+  color:var(--text);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,Arial;
+  overflow:hidden;
+}
+
+/* ===== video background ===== */
+#bg-video{
+  position:fixed;
+  inset:0;
+  z-index:1;
+  overflow:hidden;
+  background:#000;
+}
+#bg-video video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:none;
+  mix-blend-mode:normal;
+  opacity:1;
+}
+
+/* ===== vignette ===== */
+.vignette{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background:radial-gradient(120% 120% at 50% 50%, #0000 60%, #0006 85%, #000a 100%);
+  mix-blend-mode:multiply;
+  z-index:2;
+}
+
+/* ===== panel ===== */
+.panel{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:min(90%,950px);
+  max-height:90vh;
+  overflow:hidden;                 /* recorta cualquier resto del scrollbar */
+  box-sizing:border-box;
+
+  background:var(--ui-bg);
+  backdrop-filter:blur(12px);
+  border:1px solid var(--ui-border);
+  border-radius:20px;
+  padding:0;                       /* padding pasa al inner */
+  box-shadow:0 15px 40px #0008, inset 0 1px 0 #ffffff11;
+  text-align:left;
+  z-index:3;
+}
+
+/* scroll */
+.panel__scroll{
+  max-height:90vh;
+  overflow-y:auto;
+  overflow-x:hidden;
+  padding:2rem 2.5rem;             /* padding visual */
+  padding-right:calc(2.5rem + 8px);/* espacio para la barra */
+  background-clip:padding-box;
+  clip-path: inset(0 round 20px);  /* nada se sale del borde */
+}
+
+/* ===== text in panel ===== */
+.panel h2{
+  font-size:2.4rem;
+  text-align:center;
+  margin:0 0 1.5rem;
+  color:#f1e9df;
+  text-shadow:0 0 15px #fff3;
+}
+.panel h3{
+  font-size:1.4rem;
+  color:#f1e9df;
+  text-shadow:0 0 8px #fff2;
+  margin-top:1.2rem;
+}
+.panel p{
+  font-size:1rem;
+  color:var(--muted);
+  line-height:1.5;
+}
+.panel ul{
+  margin-left:1.5rem;
+  line-height:1.5;
+  color:var(--muted);
+}
+.panel hr{
+  border:0;
+  border-top:1px solid #ffffff22;
+  margin:1.5rem 0;
+}
+
+/* ===== scrollbar in panel ===== */
+.panel__scroll::-webkit-scrollbar{ width:8px; height:8px; }
+.panel__scroll::-webkit-scrollbar-thumb{ background:#ffffff33; border-radius:10px; }
+.panel__scroll::-webkit-scrollbar-thumb:hover{ background:#ffffff55; }
+.panel__scroll::-webkit-scrollbar-track{ background:transparent; margin-block:10px; border-radius:10px; }
+.panel__scroll::-webkit-scrollbar-button{ width:0; height:0; display:none; }
+.panel__scroll::-webkit-scrollbar-corner{ background:transparent; }
+
+/* Firefox */
+.panel__scroll{ scrollbar-width:thin; scrollbar-color:#ffffff33 transparent; }
+
+/* music button */
+.music-btn{
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  width: 44px;
+  height: 44px;
+  padding: 0;                    /* sin relleno extra */
+  border-radius: 50%;
+  background: #0f0f10cc;
+  border: 1px solid #ffffff33;
+  color: #f1e9df;
+  display: grid;                 /* centra mejor que flex en este caso */
+  place-items: center;
+  line-height: 1;                /* evita desalineación vertical */
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 2px 6px #0005, inset 0 1px 0 #ffffff11;
+  transition: transform .2s ease, color .2s ease, border-color .2s ease, background .2s ease;
+}
+.music-btn i{
+  font-size: 1.25rem;
+  line-height: 1;
+  display: block;                /* quita baseline inline */
+  transform: translateY(1px);    /* micro-ajuste óptico; pon 0 si no lo necesitas */
+}
+.music-btn:hover{
+  color:#ffe9a6;
+  border-color:#ffe9a6;
+  transform:scale(1.05);
+}
+.music-btn:active{ transform:scale(0.98); }
+.music-btn.playing{
+  color:#91ffb6;                 /* color cuando suena */
+  border-color:#91ffb6;
+}
+
+/* ===== Accesibilidad ===== */
+:focus-visible{
+  outline:2px solid #fff7;
+  outline-offset:3px;
+}
